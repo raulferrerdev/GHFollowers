@@ -1,19 +1,24 @@
-on: pull_request
-name: CI
+name: CI-Test
+
+on: [push]
+
 jobs:
   test:
     name: Test
-    runs-on: macOS-latest
+    runs-on: macos-latest
     strategy:
-      matrix:
-        destination: ['platform=iOS Simulator,OS=13.1,name=iPhone 11 Pro']
+        matrix:
+          destination: ['platform=iOS Simulator,OS=13.2.2,name=iPhone 11 Pro Max']
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: Testing
+      - name: Build
         run: |
-          cd ProjectName
-          xcodebuild clean test -project GHFollowers.xcodeproj -scheme GHFollowers -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean build -project GHFollowers.xcodeproj -scheme GHFollowers -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env: 
-           destination: ${{ matrix.destination }}
-           CODECOV_TOKEN: ${{ secrets.codecov_token }}
+         destination: ${{ matrix.destination }}
+      - name: Test
+        run: |
+          xcodebuild clean build -project GHFollowers.xcodeproj -scheme GHFollowersTests -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        env: 
+         destination: ${{ matrix.destination }}
