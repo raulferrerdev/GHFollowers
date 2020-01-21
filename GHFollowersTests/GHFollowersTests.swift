@@ -23,7 +23,7 @@ class GHFollowersTests: XCTestCase {
     }
     
     func testFollowerAvatarUrl() {
-        XCTAssertEqual(follower.avatarUrl, "https://avatars0.githubusercontent.com/u/10422910?v=4")
+        XCTAssertEqual(follower.avatarUrl, "https://avatars0.githubusercontent.com/u/10422910?v=2")
     }
 
     override func tearDown() {
