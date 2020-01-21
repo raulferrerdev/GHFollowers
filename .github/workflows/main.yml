@@ -1,9 +1,7 @@
 name: CI-Test
 
-on:
-  push:
-    branches:    
-      - devel
+on: [push]
+
 jobs:
   test:
     name: Test
