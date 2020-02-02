@@ -1,8 +1,8 @@
 //
-//  ErrorMessage.swift
+//  GFError.swift
 //  GHFollowers
 //
-//  Created by RaulF on 05/01/2020.
+//  Created by RaulF on 26/01/2020.
 //  Copyright © 2020 ImTech. All rights reserved.
 //
 
