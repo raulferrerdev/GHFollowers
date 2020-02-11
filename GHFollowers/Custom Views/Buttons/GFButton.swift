@@ -33,4 +33,10 @@ class GFButton: UIButton {
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline) //HIG (see Dynamic Type), see repo SemanticUI
         translatesAutoresizingMaskIntoConstraints = false // Use Autolayout, put here instead in any initialization
     }
+    
+    
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
+    }
 }
