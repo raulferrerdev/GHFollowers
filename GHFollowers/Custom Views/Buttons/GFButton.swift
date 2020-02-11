@@ -12,6 +12,7 @@ class GFButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame) // Calls default UIButton
+        configure()
     }
     
     
